@@ -1,0 +1,30 @@
+<div id="{{ editor_id }}">
+    <textarea name="{{ name }}" class="editormd-markdown-textarea">{{ default }}</textarea>
+    {#    <textarea name="{{ name }}" class="editormd-html-textarea"></textarea>#}
+</div>
+<!--span用来初始化的时候赋予已经保存的markdown内容，编辑的时候用到 -->
+<span id="{{ editor_id }}_markdown" style="display: none;">{{ markdown }}</span>
+<style>
+    form .aligned ul {
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+</style>
+<script type="text/javascript">
+    var testEditor = editormd("{{ editor_id }}", {
+        width: {{ width |safe}},
+        height: {{ height |safe}},
+        markdown: $("#{{ editor_id }}_markdown").text(),
+        toolbaricons: {{ toolbaricons }},
+        dialogShowMask: {{ dialogShowMask |lower}},
+        dialogDraggable: {{ dialogDraggable |lower}},
+        dialogLockScreen: {{ dialogLockScreen |lower}},
+        dialogMaskOpacity: {{ dialogMaskOpacity }},
+        dialogMaskBgColor: "{{ dialogMaskBgColor }}",
+        imageUploadURL: "{{ imageUploadURL }}",
+        imageUpload: {{ imageUpload | lower}},
+        imageFormats: {{ imageFormats |safe}},
+        path: "{{ path }}",
+        saveHTMLToTextarea: {{ saveHTMLToTextarea | lower}}
+    });
+</script>
