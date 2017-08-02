@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from .views import upload_image
 
 urlpatterns = [
+    url(r'^upload/image$', upload_image, name='editor_upload_image'),
 ]

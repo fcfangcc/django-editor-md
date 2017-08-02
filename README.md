@@ -15,15 +15,21 @@
     ......
     'editor_md',
 ]
+### Add editor_md.urls in urls
 
+    # urls.py
+    urlpatterns = [
+    ......
+    url(r'', include('editor_md.urls')),
+    ]
 ### Use it in models
 
     # models.py
     from editor_md.models import EditorMdField
     class Blog(models.Model):
         title = models.CharField(max_length=100, verbose_name="标题", blank=True)
-        content = EditorMdField(verbose_name="文章内容", blank=True)
-
+        content = EditorMdField(imagepath="editor_md_image/",verbose_name="文章内容", blank=True)
+    # image will save to media/editor_md_image/
 ### Add in admin
 
     # admin.py

@@ -8,4 +8,4 @@ from editor_md.models import EditorMdField
 
 class Blog(models.Model):
     title = models.CharField(max_length=100, verbose_name="标题", blank=True)
-    content = EditorMdField(verbose_name="文章内容", blank=True)
+    content = EditorMdField(imagepath="editor_md_image/", verbose_name="文章内容", blank=True)

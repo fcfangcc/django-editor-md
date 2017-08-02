@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # __author__ = "chao.fang"
 from __future__ import unicode_literals, print_function, division
+
 from django import forms
 from django.utils.safestring import mark_safe
 from django.template.loader import render_to_string
@@ -23,10 +24,10 @@ class EditorMdWidget(forms.Textarea):
         self.context["toolbaricons"] = params.pop("toolbaricons", '[]')
         self.context["default"] = params.pop("default")
         self.context["imagepath"] = params.pop("imagepath")
-        self.context["imageUploadURL"] = ''
         super(EditorMdWidget, self).__init__(attrs)
 
     def render(self, name, value, attrs=None):
+        # todo: set imageFormats from django.conf.setting
         if value is None:
             value = self.context["default"]
         self.context["markdown"] = value

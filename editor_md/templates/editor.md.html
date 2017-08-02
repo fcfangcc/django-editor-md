@@ -21,7 +21,7 @@
         dialogLockScreen: {{ dialogLockScreen |lower}},
         dialogMaskOpacity: {{ dialogMaskOpacity }},
         dialogMaskBgColor: "{{ dialogMaskBgColor }}",
-        imageUploadURL: "{{ imageUploadURL }}",
+        imageUploadURL: "{% url 'editor_upload_image' %}?path={{ imagepath }}",
         imageUpload: {{ imageUpload | lower}},
         imageFormats: {{ imageFormats |safe}},
         path: "{{ path }}",

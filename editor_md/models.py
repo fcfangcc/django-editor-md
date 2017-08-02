@@ -7,7 +7,7 @@ from .widgets import EditorMdWidget, AdminEditorMdWidget
 class EditorMdField(models.TextField):
     def __init__(self, width=0.85,
                  height=600,
-                 imagepath="",
+                 imagepath="editor_md_image/",
                  toolbaricons=[],
                  default="### Hello Editor.md !",
                  **kwargs):

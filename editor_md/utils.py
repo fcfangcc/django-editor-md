@@ -9,7 +9,6 @@ editor_settings = {
     "saveHTMLToTextarea": True,
     "imageUpload": True,
     "imageFormats": ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-    "imageUploadURL": "./php/upload.php",
     "dialogLockScreen": False,  # 设置弹出层对话框不锁屏，全局通用，默认为true
     "dialogShowMask": False,  # 设置弹出层对话框显示透明遮罩层，全局通用，默认为true
     "dialogDraggable": False,  # 设置弹出层对话框不可拖动，全局通用，默认为true
