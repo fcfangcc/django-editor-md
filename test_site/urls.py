@@ -17,8 +17,14 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.views.static import serve
+from test_app import views as test_view
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^test/', test_view.editor_md_test, name='add'),
+    url(r'^edit_test/', test_view.edit_test, name='edit'),
+    url(r'^show_test/', test_view.show_test, name='show'),
+
     url(r'', include('editor_md.urls')),
     url(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
 

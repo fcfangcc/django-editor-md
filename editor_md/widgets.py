@@ -37,8 +37,17 @@ class EditorMdWidget(forms.Textarea):
 
     class Media:
         # https://docs.djangoproject.com/en/1.11/topics/forms/media/
-        js = ("js/jquery.min.js",
-              "editor.md/editormd.min.js")
+        js = (
+            "js/jquery.min.js",
+            "editor.md/lib/marked.min.js",
+            "editor.md/lib/prettify.min.js",
+            "editor.md/lib/raphael.min.js",
+            "editor.md/lib/underscore.min.js",
+            "editor.md/lib/sequence-diagram.min.js",
+            "editor.md/lib/flowchart.min.js",
+            "editor.md/lib/jquery.flowchart.min.js",
+            "editor.md/editormd.min.js",
+        )
         css = {"all": ("editor.md/css/editormd.min.css",)}
 
 

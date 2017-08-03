@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor.md测试页面</title>
+    {{ form.media }}
+</head>
+<body>
+<h3><a href="{% url 'add' %}">add</a></h3>
+<h3><a href="{% url 'edit' %}">edit</a></h3>
+<h3><a href="{% url 'show' %}">show</a></h3>
+<!-- textarea to save markdown -->
+<textarea id="markdown" style="display: none">{{ form.content.value }}</textarea>
+
+<div id="EditorMdHtml">
+    <!-- textarea to show html from  markdown -->
+    <textarea id="markdown_html" style="display:none;"></textarea>'
+</div>
+<!-- js for markdown to html -->
+<!-- you can see more to http://pandao.github.io/editor.md/examples/html-preview-markdown-to-html.html -->
+<script type="text/javascript">
+    $(function () {
+        var $markdown_html = $("#markdown_html");
+        var $markdown = $("#markdown");
+        var content = $markdown.text();
+        $markdown_html.text(content);
+        testEditormdView2 = editormd.markdownToHTML("EditorMdHtml", {
+            htmlDecode: "style,script,iframe",
+            emoji: true,
+            taskList: true,
+            tex: true,
+            flowChart: true,
+            sequenceDiagram: true,
+        });
+    });
+</script>
+</body>
+</html>

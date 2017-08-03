@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor.md测试页面</title>
+    {{ form.media }}
+</head>
+<body>
+<h3><a href="{% url 'add' %}">add</a></h3>
+<h3><a href="{% url 'edit' %}">edit</a></h3>
+<h3><a href="{% url 'show' %}">show</a></h3>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
