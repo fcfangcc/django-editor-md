@@ -16,15 +16,19 @@
         height: {{ height |safe}},
         markdown: $("#{{ editor_id }}_markdown").text(),
         toolbaricons: {{ toolbaricons }},
-        dialogShowMask: {{ dialogShowMask |lower}},
-        dialogDraggable: {{ dialogDraggable |lower}},
-        dialogLockScreen: {{ dialogLockScreen |lower}},
+        dialogShowMask: {{ dialogShowMask }},
+        dialogDraggable: {{ dialogDraggable }},
+        dialogLockScreen: {{ dialogLockScreen }},
         dialogMaskOpacity: {{ dialogMaskOpacity }},
         dialogMaskBgColor: "{{ dialogMaskBgColor }}",
-        imageUploadURL: "{% url 'editor_upload_image' %}?path={{ imagepath }}",
-        imageUpload: {{ imageUpload | lower}},
+        imageUploadURL: "{{ imageUploadURL }}",
+        imageUpload: {{ imageUpload }},
         imageFormats: {{ imageFormats |safe}},
         path: "{{ path }}",
-        saveHTMLToTextarea: {{ saveHTMLToTextarea | lower}}
+        saveHTMLToTextarea: {{ saveHTMLToTextarea }},
+        readOnly: {{ readOnly }},
+        codeFold: {{ codeFold }},
+        toolbarAutoFixed: {{ toolbarAutoFixed }},
+        syncScrolling: {{ syncScrolling }}
     });
 </script>

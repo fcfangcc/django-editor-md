@@ -6,6 +6,8 @@ from distutils.command.install import INSTALL_SCHEMES
 import os
 import sys
 
+version = "0.2.150"
+
 
 class osx_install_data(install_data):
     # On MacOS, the platform-specific lib dir is /System/Library/Framework/Python/.../
@@ -72,7 +74,7 @@ if len(sys.argv) > 1 and sys.argv[1] == 'bdist_wininst':
         file_info[0] = '\\PURELIB\\%s' % file_info[0]
 
 # Dynamically calculate the version based on django.VERSION.
-version = "0.1.150"
+
 
 setup(
     name="django_editor_md",

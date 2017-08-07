@@ -81,10 +81,6 @@
         list_display = ("title",)
     admin.site.register(Blog, BlogAdmin)
 
-Open admin manager http://127.0.0.1:8000/admin/.
-Add you model ,editor.md  windows on web.
- ![demo](test_site/demo.png)
-
 # Example App
 
     git clone https://github.com/fcfangcc/django-editor-md.git

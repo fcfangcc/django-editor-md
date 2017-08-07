@@ -7,7 +7,6 @@ from django.utils.safestring import mark_safe
 from django.template.loader import render_to_string
 from django.contrib.admin.widgets import AdminTextareaWidget
 import copy
-import json
 from .utils import editor_settings
 
 
@@ -23,7 +22,11 @@ class EditorMdWidget(forms.Textarea):
             self.context["height"] = '"{}%"'.format(self.context["height"] * 100)
         self.context["toolbaricons"] = params.pop("toolbaricons", '[]')
         self.context["default"] = params.pop("default")
-        self.context["imagepath"] = params.pop("imagepath")
+        imagepath = params.pop("imagepath")
+        if imagepath:
+            editor_settings["imageUploadURL"][2] = imagepath
+        self.context["imageUploadURL"] = ''.join(editor_settings["imageUploadURL"])
+
         super(EditorMdWidget, self).__init__(attrs)
 
     def render(self, name, value, attrs=None):
@@ -33,6 +36,9 @@ class EditorMdWidget(forms.Textarea):
         self.context["markdown"] = value
         self.context["editor_id"] = "id_%s" % name.replace("-", "_")
         self.context["name"] = name
+        for i, v in self.context.items():
+            if isinstance(v, bool):
+                self.context[i] = str(v).lower()
         return mark_safe(render_to_string('editor.md.html', self.context))
 
     class Media:

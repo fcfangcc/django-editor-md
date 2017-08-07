@@ -8,7 +8,7 @@ class EditorMdField(models.TextField):
     def __init__(self, width=0.85,
                  height=600,
                  imagepath="editor_md_image/",
-                 toolbaricons=[],
+                 toolbaricons=list(),
                  default="### Hello Editor.md !",
                  **kwargs):
         """
@@ -34,14 +34,14 @@ class EditorMdField(models.TextField):
         :param kwargs:
             TextField params.
         """
-        self.editor_settings = locals().copy()
-        del self.editor_settings["self"], self.editor_settings["kwargs"]
+        self.settings = locals().copy()
+        del self.settings["self"], self.settings["kwargs"]
         super(EditorMdField, self).__init__(**kwargs)
 
     def formfield(self, **kwargs):
-        defaults = {'widget': EditorMdWidget(attrs=self.editor_settings)}
+        defaults = {'widget': EditorMdWidget(attrs=self.settings)}
         defaults.update(kwargs)
         if defaults['widget'] == admin_widgets.AdminTextareaWidget:
             defaults['widget'] = AdminEditorMdWidget(
-                attrs=self.editor_settings)
+                attrs=self.settings)
         return super(EditorMdField, self).formfield(**defaults)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # __author__ = "chao.fang"
-from __future__ import unicode_literals, print_function, division
+from django.conf import settings
 
 editor_settings = {
     "width": 0,
@@ -14,5 +14,9 @@ editor_settings = {
     "dialogDraggable": False,  # 设置弹出层对话框不可拖动，全局通用，默认为true
     "dialogMaskOpacity": 0.4,  # 设置透明遮罩层的透明度，全局通用，默认值为0.1
     "dialogMaskBgColor": "#000",  # 设置透明遮罩层的背景颜色，全局通用，默认为  # fff
-
+    "imageUploadURL": ["/upload/image", "?path=", "editor_md_image/"],
+    "readOnly": False,
+    "codeFold": True,
+    "toolbarAutoFixed": True,
+    "syncScrolling": True
 }
